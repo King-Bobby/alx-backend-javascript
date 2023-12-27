@@ -9,6 +9,8 @@ describe('calculateNumber', () => {
 
     it('should return the sum of rounded numbers for one decimal place', () => {
         assert.strictEqual(calculateNumber(1, 3.7), 5);
+    });
+    it('should return the sum when the second number is already round', () => {
 	assert.strictEqual(calculateNumber(1.3, 2), 3);
     });
 
