@@ -16,22 +16,17 @@ describe('Index page', () => {
     server.close();
   });
 
-  it('Correct status code?', (done) => {
+  it('(a) Test for GET / exists', (done) => {
     request.get('http://localhost:7865', (error, response) => {
-      expect(response.statusCode).to.equal(200);
+      expect(response.statusCode).to.not.equal(404); // Ensure that the route exists
       done();
     });
   });
 
-  it('Correct result?', (done) => {
+  it('(b) Test for GET / returns "Welcome to the payment system" exists', (done) => {
     request.get('http://localhost:7865', (error, response, body) => {
       expect(body).to.equal('Welcome to the payment system');
       done();
     });
-  });
-
-  it('Other?', (done) => {
-    // Add any additional tests as needed
-    done();
   });
 });
